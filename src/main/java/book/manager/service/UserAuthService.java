@@ -15,9 +15,10 @@ public class UserAuthService implements UserDetailsService {
     @Resource
     UserMapper mapper;
 
+    //验证登录
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        String password = mapper.getPasswordByUserName(s);
+        String password = mapper.getPasswordByUserName(s);  //用mapper查询数据库user表
         if(password == null) throw new UsernameNotFoundException("Login failed.Uname or pwd is error");
         return User.withUsername(s)
                 .password(password)

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <form method="post" action="doLogin">
+                <h2>Please sign in</h2>
+                <p>
+                    <label>Username:</label>
+                    <input type="text" name="username" placeholder="Username">
+                </p>
+                <p>
+                    <label>Password:</label>
+                    <input type="password" name="password" placeholder="Password" required="" />
+                </p>
+<!--                csrf-->
+<!--                <input type="text" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" hidden>-->
+                <button type="submit" class="btn btn-success">Login</button>
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script th:src="@{/static/bootstrap-3.4.1-dist/js/bootstrap.js}"></script>
+</body>
+</html>

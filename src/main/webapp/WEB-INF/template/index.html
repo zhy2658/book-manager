@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>hello world</title>
+    <title>Home</title>
     <script th:src="@{/static/index.js}"></script>
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bar{
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            /*justify-items: center;*/
+        }
+        .bar button{
+            height: 40px;
+        }
+    </style>
 </head>
 <body>
-  <div>hello world!!</div>
+    <div class="bar">
+        <div>index</div>
+        <a href="logout"><button type="button" class="btn btn-warning">Logout</button></a>
+<!--        取消csrf-->
+<!--        <div>-->
+<!--            <form action="logout" method="post">-->
+<!--                <input type="text" th:name="${_csrf.getParameterName()}" th:value="${_csrf.token}" hidden>-->
+<!--                <button type="submit" class="btn btn-warning">Logout</button>-->
+<!--            </form>-->
+<!--        </div>-->
+    </div>
+    <div>hello world!!</div>
+
+
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script th:src="@{/static/bootstrap-3.4.1-dist/js/bootstrap.js}"></script>
 </body>
 </html>
