@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -23,6 +24,7 @@ import java.util.List;
 })
 @Configuration
 @EnableWebMvc
+@EnableGlobalMethodSecurity(prePostEnabled = true) //开启用注解管理security
 public class MvcConfiguration implements WebMvcConfigurer {
 
     //1.我们需要 ThymeleafViewResolver 作为视图解析器，并解析我们的html页面

@@ -1,5 +1,6 @@
 package book.manager.service;
 
+import book.manager.entity.AuthUser;
 import book.manager.mapper.UserMapper;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,11 +19,12 @@ public class UserAuthService implements UserDetailsService {
     //验证登录
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        String password = mapper.getPasswordByUserName(s);  //用mapper查询数据库user表
-        if(password == null) throw new UsernameNotFoundException("Login failed.Uname or pwd is error");
+        AuthUser authUser = mapper.getPasswordByUserName(s);  //用mapper查询数据库user表
+        if(authUser == null) throw new UsernameNotFoundException("Login failed.Uname or pwd is error");
         return User.withUsername(s)
-                .password(password)
-                .roles("user")
+                .password(authUser.getPassword())
+                .roles(authUser.getRole())
+//                .authorities("page:index","page:admin")
                 .build();
     }
 }

@@ -8,20 +8,35 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .bar{
-            height: 100px;
-            display: flex;
-            justify-content: space-between;
+            /*height: 100px;*/
+            /*display: flex;*/
+            /*justify-content: space-between;*/
             /*justify-items: center;*/
+            margin-top: 100px;
+            font-size: 18px;
+            /*color: crimson;*/
+        }
+        div{
+            text-align: center;
         }
         .bar button{
-            height: 40px;
+            margin: 15px 0;
+            width: 200px;
+            /*height: 40px;*/
+        }
+        span{
+            font-size: 40px;
+            color: crimson;
         }
     </style>
 </head>
 <body>
+
     <div class="bar">
-        <div>index</div>
-        <a href="logout"><button type="button" class="btn btn-warning">Logout</button></a>
+        <div><h2>Hello <span th:text="${uname}"></span>! </h2> </div>
+        <div><h1>Welcome come to Home.Please select your operation!</h1></div>
+        <div> <a href="admin"><button type="button" class="btn btn-info">Admin(only admin)</button></a></div>
+        <div> <a href="logout"><button type="button" class="btn btn-danger">Logout</button></a></div>
 <!--        取消csrf-->
 <!--        <div>-->
 <!--            <form action="logout" method="post">-->
@@ -30,7 +45,7 @@
 <!--            </form>-->
 <!--        </div>-->
     </div>
-    <div>hello world!!</div>
+
 
 
     <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
