@@ -1,4 +1,4 @@
-package book.manager.service;
+package book.manager.service.impl;
 
 import book.manager.entity.AuthUser;
 import book.manager.mapper.UserMapper;

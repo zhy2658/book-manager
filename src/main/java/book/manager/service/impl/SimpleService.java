@@ -1,4 +1,4 @@
-package book.manager.service;
+package book.manager.service.impl;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PreFilter;
