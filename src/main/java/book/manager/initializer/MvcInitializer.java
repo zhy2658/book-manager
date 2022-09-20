@@ -27,12 +27,6 @@ public class MvcInitializer extends AbstractAnnotationConfigDispatcherServletIni
         return new String[]{"/"};
     }
 
-    //    解决请求参数中文乱码问题
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        servletContext.addFilter("characterEncodingFilter",new CharacterEncodingFilter("UTF-8",true)).addMappingForUrlPatterns(null,false,"/*");
-        super.onStartup(servletContext);
-    }
 
 }
 

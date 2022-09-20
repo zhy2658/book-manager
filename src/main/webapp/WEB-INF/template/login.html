@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -12,7 +13,7 @@
 
     <div class="row">
         <div class="col-md-12 text-center">
-            <form method="post" action="doLogin">
+            <form method="post" th:action="@{/api/auth/login}">
                 <h2>Please Login</h2>
                 <p>
                     <label>Username:</label>

@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-secuirty" >
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <script th:src="@{/static/index.js}"></script>
     <!-- 引入 Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         .bar{
             /*height: 100px;*/
             /*display: flex;*/
             /*justify-content: space-between;*/
             /*justify-items: center;*/
-            margin-top: 100px;
+            margin-top: 10px;
             font-size: 18px;
             /*color: crimson;*/
         }
@@ -25,25 +31,69 @@
             /*height: 40px;*/
         }
         span{
-            font-size: 40px;
+            font-size: 25px;
             color: crimson;
+        }
+        .fz40{
+            font-size: 40px;
         }
     </style>
 </head>
 <body>
 
-    <div class="bar">
-        <div><h2>Hello <span th:text="${uname}"></span>! </h2> </div>
+    <div class="bar" >
+        <div th:replace="template.html::title"></div>
+        <div><h2>Hello <span class="fz40" th:text="${uname}"></span>! </h2> </div>
+        <div><h2>Uid: <span th:text="${user.getUid()}"></span></h2> </div>
+        <div><h2>Username: <span th:text="${user.getUsername()}"></span></h2> </div>
+        <div><h2>Role: <span th:text="${user.getRole().equals('user') ? 'You are user':'Administrator'}"></span></h2> </div>
+<!--        <div><h2>role: <span th:text="${user.getRole()}"></span>! </h2> </div>-->
+<!--        <div><h2>role: <span th:text="${user.getRole()}"></span>! </h2> </div>-->
         <div><h1>Welcome come to Home.Please select your operation!</h1></div>
         <div> <a href="admin"><button type="button" class="btn btn-info">Admin(only admin)</button></a></div>
-        <div> <a href="logout"><button type="button" class="btn btn-danger">Logout</button></a></div>
-<!--        取消csrf-->
-<!--        <div>-->
-<!--            <form action="logout" method="post">-->
-<!--                <input type="text" th:name="${_csrf.getParameterName()}" th:value="${_csrf.token}" hidden>-->
-<!--                <button type="submit" class="btn btn-warning">Logout</button>-->
-<!--            </form>-->
-<!--        </div>-->
+        <div> <a th:href="@{/api/auth/logout}"><button type="button" class="btn btn-danger">Logout</button></a></div>
+
+<!--        管理员界面-->
+        <div sec:authorize="hasRole('admin')" style="margin-top: 20px">
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Lend Manage
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Book Manage
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+<!--        用户列表界面-->
+        <div sec:authorize="hasRole('user')" style="margin-top: 20px">
+
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Borrow Book
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Borrow Manage
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 

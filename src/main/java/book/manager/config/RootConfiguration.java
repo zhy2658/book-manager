@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -20,6 +21,7 @@ import javax.sql.DataSource;
 @MapperScan("book.manager.mapper")
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true) //开启用注解管理security
+@EnableTransactionManagement   //开启事务
 public class RootConfiguration {
 
 //    1.提供数据源

@@ -3,6 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-secuirty">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>register</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -12,7 +13,7 @@
 <body>
 <div class="row">
     <div class="col-md-12 text-center">
-        <form method="post" action="doRegister">
+        <form method="post" th:action="@{/api/auth/register}">
             <h2>Please fill info for register  </h2>
             <div >
                 <label>Username:</label>

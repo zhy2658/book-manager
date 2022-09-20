@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-secuirty">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script th:src="@{/static/index.js}"></script>
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/static/css/template.css}">
+</head>
+<body>
+    <div>
+        <div th:replace="template.html::title"></div>
+<!--        <div th:replace="template.html::info"></div>-->
+        <div>
+            <table class="table table-condensed">
+                <tr>
+                    <th>head 1</th>
+                    <th>head 1</th>
+                    <th>head 1</th>
+                    <th>head 1</th>
+                    <th>head 1</th>
+                    <th>head 1</th>
+
+                </tr>
+                <tr>
+                    <td>row 1</td>
+                    <td>row 1</td>
+                    <td>row 1</td>
+                    <td>row 1</td>
+                    <td>row 1</td>
+                    <td>row 1</td>
+
+                </tr>
+                <tr>
+                    <td>row 1</td>
+                    <td>row 1</td>
+                    <td>row 1</td>
+                    <td>row 1</td>
+                    <td>row 1</td>
+                    <td>row 1</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script th:src="@{/static/bootstrap-3.4.1-dist/js/bootstrap.js}"></script>
+</body>
+</html>

@@ -3,12 +3,15 @@ package book.manager.service.impl;
 import book.manager.entity.AuthUser;
 import book.manager.mapper.UserMapper;
 import book.manager.service.AuthService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -16,7 +19,10 @@ public class AuthServiceImpl implements AuthService {
     @Resource
     UserMapper userMapper;
 
+    @Resource
+    AuthService authService;
 
+    @Transactional
     @Override
     public boolean register(String name, String sex, String grade, String password,int age) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -30,4 +36,21 @@ public class AuthServiceImpl implements AuthService {
 
         return true;
     }
+
+    @Transactional
+    @Override
+    public String getStudentInfo(int uid) {
+        String name = userMapper.getStudentInfo(uid);
+        return name;
+    }
+    public AuthUser findUser(HttpSession session){
+        AuthUser user = (AuthUser) session.getAttribute("user");
+        if(user == null){
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            user = userMapper.getPasswordByUserName(authentication.getName());
+            session.setAttribute("user",user);
+        }
+        return user;
+    }
+
 }

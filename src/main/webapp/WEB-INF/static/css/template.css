@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.bar{
+    /*height: 100px;*/
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*justify-items: center;*/
+    margin-top: 10px;
+    font-size: 18px;
+    /*color: crimson;*/
+}
+div{
+    text-align: center;
+}
+.bar button{
+    margin: 15px 0;
+    width: 200px;
+    /*height: 40px;*/
+}
+span{
+    font-size: 25px;
+    color: crimson;
+}
+.fz40{
+    font-size: 40px;
+}
