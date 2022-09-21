@@ -1,6 +1,7 @@
 package book.manager.mapper;
 
 import book.manager.entity.AuthUser;
+import book.manager.entity.Student;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
@@ -20,6 +21,6 @@ public interface UserMapper {
                    @Param("age") int age,
                    @Param("uid") int uid);
 
-    @Select("select name from student where uid = #{uid}")
-    String getStudentInfo(@Param("uid") int uid);
+    @Select("select * from student where uid = #{uid}")
+    Student getStudentInfo(@Param("uid") int uid);
 }

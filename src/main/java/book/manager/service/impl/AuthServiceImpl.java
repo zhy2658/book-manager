@@ -1,6 +1,7 @@
 package book.manager.service.impl;
 
 import book.manager.entity.AuthUser;
+import book.manager.entity.Student;
 import book.manager.mapper.UserMapper;
 import book.manager.service.AuthService;
 import org.springframework.security.core.Authentication;
@@ -39,9 +40,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Transactional
     @Override
-    public String getStudentInfo(int uid) {
-        String name = userMapper.getStudentInfo(uid);
-        return name;
+    public Student getStudentInfo(int uid) {
+        Student student = userMapper.getStudentInfo(uid);
+        return student;
     }
     public AuthUser findUser(HttpSession session){
         AuthUser user = (AuthUser) session.getAttribute("user");

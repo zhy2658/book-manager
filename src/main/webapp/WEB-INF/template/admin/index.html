@@ -5,13 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <script th:src="@{/static/index.js}"></script>
     <!-- 引入 Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script th:src="@{/static/bootstrap-3.4.1-dist/js/bootstrap.js}"></script>
+    <link rel="stylesheet" th:href="@{/static/css/common.css}">
+    <!--    <script th:src="@{/static/js/navigation.js}"></script>-->
     <link rel="stylesheet" th:href="@{/static/css/template.css}">
 </head>
 <body>
     <div>
+        <ol class="breadcrumb">
+            <li><a href="#">Admin/Index</a></li>
+        </ol>
         <div th:replace="template.html::title"></div>
 <!--        <div th:replace="template.html::info"></div>-->
         <div>
@@ -49,9 +57,6 @@
 
 
 
-    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- 包括所有已编译的插件 -->
-    <script th:src="@{/static/bootstrap-3.4.1-dist/js/bootstrap.js}"></script>
+
 </body>
 </html>

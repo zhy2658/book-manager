@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-secuirty">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script th:src="@{/static/bootstrap-3.4.1-dist/js/bootstrap.js}"></script>
+    <link rel="stylesheet" th:href="@{/static/css/common.css}">
+    <!--    <script th:src="@{/static/js/navigation.js}"></script>-->
+    <link rel="stylesheet" th:href="@{/static/css/template.css}">
+</head>
+<body>
+<div>
+    <ol class="breadcrumb">
+        <li><a href="#">Admin/add Book</a></li>
+    </ol>
+    <div th:replace="template.html::title"></div>
+    <div>
+        <form th:action="@{/api/admin/add-book}" method="post">
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-6 col-md-offset-1" style="margin-bottom: 30px">
+                    <div class="input-group">
+                        <span class="input-group-addon">BookName</span>
+                        <input type="text" class="form-control"  name="title" placeholder="Bookbame" aria-describedby="basic-addon1">
+                    </div>
+                    <!--                <input type="text"  placeholder="bookname">-->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-2 col-md-offset-1" style="margin-bottom: 30px">
+                    <div class="input-group">
+                        <span class="input-group-addon">Price</span>
+                        <input type="text" class="form-control" name="price" placeholder="Price" aria-describedby="basic-addon1">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-6 col-md-offset-1" style="margin-bottom: 30px">
+                    <div class="input-group">
+                        <span class="input-group-addon">Author</span>
+                        <input type="text" class="form-control"  name="author" placeholder="author" aria-describedby="basic-addon1">
+                    </div>
+                    <!--                <input type="text"  placeholder="bookname">-->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-10 col-md-offset-1" style="margin-bottom: 30px">
+                    <div class="input-group">
+                        <span class="input-group-addon">Descriotion</span>
+                        <input type="text" class="form-control" name="description" placeholder="Descriotion" aria-describedby="basic-addon1">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+
+            </div><!-- /.row -->
+            <button type="submit" class="btn btn-success">ADD</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

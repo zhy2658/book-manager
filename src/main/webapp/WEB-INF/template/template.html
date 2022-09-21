@@ -6,28 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script th:src="@{/static/bootstrap-3.4.1-dist/js/bootstrap.js}"></script>
 
 </head>
 <body>
-    <div th:fragment="title" style="position: absolute;background-color: #fff;right: 0;bottom: 0;border: 1px solid #122b40">
-        <div style="width: 200px;">
+    <div th:fragment="title" style="background-color: #fff;border: 1px solid #122b40;height: 150px;">
+        <div style="width: 200px;float: left;">
             <p>
-                <span th:text="${uname}"></span>/
-                <span th:text="${user.getRole()}"></span>
+                <span th:text="${student.getName()}" class="cri25"></span>/
+                <span th:text="${user.getRole()}" class="cri25"></span>
             </p>
             <p>
-                <span th:text="${user.getUsername()}"></span>&
-                <span th:text="${user.getUid()}"></span>
+                <span th:text="${user.getUsername()}" class="cri25"></span>&
+                <span th:text="${user.getUid()}" class="cri25"></span>
 
             </p>
             <p>
                 <a th:href="@{/api/auth/logout}"><button type="button" class="btn btn-danger">Logout</button></a>
             </p>
         </div>
-        <ul class="nav nav-tabs nav-stacked ">
-            <li role="presentation" class="active"><a href="#">Borrow Book</a></li>
-            <li role="presentation"><a href="#">Borrow Manage</a></li>
-        </ul>
+        <div style="float: left;">
+            <ul class="nav nav-tabs " sec:authorize="hasRole('admin')" >
+                <li role="presentation"><a th:href="@{/page/admin/index}">Lend Book</a></li>
+                <li role="presentation"><a th:href="@{/page/admin/book}">Book Manage</a></li>
+                <li role="presentation"><a th:href="@{/page/admin/add-book}">Add Book</button></a></li>
+
+            </ul>
+            <ul class="nav nav-tabs nav-stacked " sec:authorize="hasRole('user')" >
+                <li role="presentation"><a th:href="@{/page/user/index}">Borrow Book</a></li>
+                <li role="presentation"><a th:href="@{/page/user/book}">My Book</a></li>
+            </ul>
+        </div>
+
+        <script th:src="@{/static/js/navigation.js}"></script>
     </div>
 
     <div th:fragment="info">
@@ -38,9 +52,7 @@
     </div>
 
 
-    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- 包括所有已编译的插件 -->
-    <script th:src="@{/static/bootstrap-3.4.1-dist/js/bootstrap.js}"></script>
+
+
 </body>
 </html>
