@@ -22,33 +22,34 @@
         </ol>
         <div th:replace="template.html::title"></div>
 <!--        <div th:replace="template.html::info"></div>-->
+        <div style="height: 100px;display: flex;justify-content: space-around">
+            <div style="">
+                <span class="fz20">User Total:</span>
+                <span class="cri25" th:text="${globalStat.getUserCount()}"></span>
+            </div>
+            <div style="">
+                <span class="fz20">Book Total:</span>
+                <span class="cri25" th:text="${globalStat.getBookCount()}"></span>
+            </div>
+            <div style="">
+                <span class="fz20">Borrow Total:</span>
+                <span class="cri25" th:text="${globalStat.getBorrowCount()}"></span>
+            </div>
+        </div>
         <div>
-            <table class="table table-condensed">
+           <table class="table table-condensed">
                 <tr>
-                    <th>head 1</th>
-                    <th>head 1</th>
-                    <th>head 1</th>
-                    <th>head 1</th>
-                    <th>head 1</th>
-                    <th>head 1</th>
+                    <th>#ID</th>
+                    <th>BookName</th>
+                    <th>UserName</th>
+                    <th>Time</th>
 
                 </tr>
-                <tr>
-                    <td>row 1</td>
-                    <td>row 1</td>
-                    <td>row 1</td>
-                    <td>row 1</td>
-                    <td>row 1</td>
-                    <td>row 1</td>
-
-                </tr>
-                <tr>
-                    <td>row 1</td>
-                    <td>row 1</td>
-                    <td>row 1</td>
-                    <td>row 1</td>
-                    <td>row 1</td>
-                    <td>row 1</td>
+                <tr th:each="book : ${bookList}">
+                    <td th:text="${book.getId()}"></td>
+                    <td>(<span th:text="${book.getBook_title()}"></span>)</td>
+                    <td th:text="${book.getUsername()}"></td>
+                    <td th:text="${book.getTime().toString()}"></td>
 
                 </tr>
             </table>

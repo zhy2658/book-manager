@@ -2,6 +2,7 @@ package book.manager.service.impl;
 
 import book.manager.entity.Book;
 import book.manager.entity.Borrow;
+import book.manager.entity.BorrowDetails;
 import book.manager.mapper.BookMapper;
 import book.manager.service.BookService;
 import org.springframework.stereotype.Service;
@@ -69,4 +70,10 @@ public class BookServiceImpl implements BookService {
     public void returnBook(int bid, int uid) {
         bookMapper.returnBook(bid,uid);
     }
+
+    @Override
+    public List<BorrowDetails> getBorrowDetailList() {
+        return bookMapper.getBorrowDetailList();
+    }
+
 }

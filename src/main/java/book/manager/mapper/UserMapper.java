@@ -23,4 +23,7 @@ public interface UserMapper {
 
     @Select("select * from student where uid = #{uid}")
     Student getStudentInfo(@Param("uid") int uid);
+
+    @Select("select count(*) from users")
+    int getUserCount();
 }
