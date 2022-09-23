@@ -10,6 +10,8 @@ import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
+
+//初始化DispatcherServlet
 public class MvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override

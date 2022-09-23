@@ -5,6 +5,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 import javax.servlet.ServletContext;
 
+//初始化SpringSecurity
 public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
 
     // 解决请求参数中文乱码问题
